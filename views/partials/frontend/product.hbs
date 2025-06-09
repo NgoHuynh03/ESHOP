@@ -1,0 +1,99 @@
+<section id="advertisement">
+		<div class="container">
+			<img src="images/shop/advertisement.jpg" alt="" />
+		</div>
+	</section>
+	
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="left-sidebar">
+						<h2>Category</h2>
+						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+							{{#each dataCategory}}
+							<div class="panel panel-default">								
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										{{!-- <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+											{{!-- <span class="badge pull-right"><i class="fa fa-plus"></i></span> --}}
+											{{name}}
+										</a> --}}
+										<ul>
+											<li><a href="/product/?category={{id}}">{{name}} </a></li>
+										</ul>
+									</h4>
+								</div>
+								{{!-- <div id="sportswear" class="panel-collapse collapse">
+									<div class="panel-body">
+										{{#each dataTrademark}}										
+										<ul>
+											<li><a href="/product/?category=sport&&trademark=nike">{{this.name}} </a></li>
+										</ul>
+										{{/each}}
+									</div>
+								</div>								 --}}
+							</div>
+							{{/each}}
+							
+						</div><!--/category-productsr-->
+					
+						<div class="brands_products"><!--brands_products-->
+							<h2>Thương hiệu	</h2>
+							<div class="brands-name">		
+							{{#each dataTrademark}}
+								<ul class="nav nav-pills nav-stacked">
+									<li><a href="/product/?trademark={{id}}"> <span class="pull-right"></span>{{name}}</a></li>
+								</ul>
+							{{/each}}		
+							</div>											
+						</div><!--/brands_products-->
+						
+						
+						<div class="shipping text-center"><!--shipping-->
+							<img src="images/home/shipping.jpg" alt="" />
+						</div><!--/shipping-->
+						
+					</div>
+				</div>
+				
+				<div class="col-sm-9 padding-right">
+					<div class="features_items"><!--features_items-->
+						<h2 class="title text-center">Các sản phẩm</h2>
+						{{#each data}}
+						<div class="col-sm-4">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+									<div class="productinfo text-center">
+										<img src="/img/upload/{{image}}" alt="" width="260" height="300"/>
+										<h2>{{price}} VND</h2>
+										<p>{{name}}</p>
+										<a href="/product/detail/{{id}}" class="btn btn-default add-to-cart"><i class="fa fa-search"></i>Xem chi tiết</a>
+									</div>
+									<div class="product-overlay">
+										<div class="overlay-content">
+											<h2>{{price}} VND</h2>
+											<p>{{name}}</p>
+											<a href="/product/detail/{{id}}" class="btn btn-default add-to-cart"><i class="fa fa-search"></i>Xem chi tiết</a>
+										</div>
+									</div>
+								</div>						
+							</div>
+						</div>
+						{{/each}}
+					</div>
+				
+						<nav aria-label="Page navigation example">
+						<ul class="pagination">
+							{{!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li> --}}
+						{{#each numberPage}}
+						<li class="page-item"><a class="page-link" href="/product/{{link}}&page={{page}}">{{page}}</a></li>
+						{{/each}}
+							{{!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> --}}
+						</ul>
+						</nav>
+				</div>
+				
+			</div>
+		</div>
+	</section>

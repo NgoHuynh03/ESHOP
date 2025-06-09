@@ -1,0 +1,79 @@
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <div class="row">
+            <div class="col-sm-11">
+                <h6 class="m-0 font-weight-bold text-primary">Add Product</h6>
+            </div>
+            {{!-- <div class="col-sm-1">
+                <a style="font-size: 12px;" class="btn btn-info" href="/admin/product/create">Create Product</a>
+            </div> --}}
+        </div>
+    </div>
+    <div class="card-body">
+        <div style="overflow: hidden;" class="table-responsive">
+            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                <form action="/admin/product/create" method="post" id="createForm" enctype="multipart/form-data" role="form" data-toggle="validator">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name products</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                             name="name" value="{{name}}" >
+                        <small id="emailHelp" class="form-text text-muted"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Quanlity</label>
+                        <input type="quanlity" class="form-control" id="exampleInputQuanlity" 
+                            name="quanlity" value="{{quanlity}}" >
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Size</label>
+                        <input type="text" class="form-control" id="exampleInputSize" 
+                            name="size" value="{{size}}" >
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Price</label>
+                        <input type="number" class="form-control" id="exampleInputPrice" 
+                            name="price" value="{{price}}" >
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Category</label>
+                        
+                        <select name="category" id="dataCate" class="form-select" aria-label="Default select example">
+                            {{#each dataCate}}
+                            <option value="{{id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="form-group">    
+                        <label for="exampleInputPassword1">TradeMark</label>
+                        <select name="trademark" id="dataTrade" class="form-select" aria-label="Default select example">
+                            {{#each dataTrade}}
+                            <option value="{{id}}">{{name}}</option>
+                            {{/each}}
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Image</label>
+                        <input type="file" name="image" accept="image/*" >
+                        <img style="width: 200px;" src="" class="preview" />
+                    </div>
+                    <button type="submit" class="btn btn-primary" value="create">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#createForm').validator()
+    let fileInput = document.forms.createForm.image;
+    fileInput.addEventListener('change', () => {
+        let file = fileInput.files[0];
+        if (!file) return;
+        let reader = new FileReader;
+        reader.readAsDataURL(file);
+        reader.onload = function (e) {
+            document.querySelector('.preview').src = reader.result;
+        }
+    })
+</script>
+
