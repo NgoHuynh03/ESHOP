@@ -3,7 +3,7 @@ Bạn cần phải cài đặt Node và NPM.
 
 Sao chép kho lưu trữ này
 
-git clone https://github.com/nscon160498/ESHOP-CODE
+git clone 
 Cài đặt các phụ thuộc
 
 npm install
